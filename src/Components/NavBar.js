@@ -12,7 +12,7 @@ export default class NavBar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <nav className={`navbar navbar-expand-lg navbar-${this.props.mode} bg-${this.props.mode} fixed-top`}>
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">NEWSTODAY</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,14 +31,14 @@ export default class NavBar extends Component {
                                 <li className="nav-item"><Link className="nav-link" to="/science">Science</Link></li>
                                 <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
                                 <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
-                            </ul>
+                            {/* </ul> */}
                             
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0"> */}
                                 <li className="nav-item dropdown">
-                                    <Link className="nav-link dropdown-toggle" to="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Link className="nav-link dropdown-toggle" to="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Country
                                     </Link>
-                                    <ul className="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <ul className={`dropdown-menu dropdown-menu-${this.props.mode}`} aria-labelledby="navbarLightDropdownMenuLink">
                                         <li><Link className="dropdown-item" to="/india">India</Link></li>
                                         <li><Link className="dropdown-item" to="/austrailia">Australia</Link></li>
                                         <li><Link className="dropdown-item" to="/canada">Canada</Link></li>
@@ -50,6 +50,11 @@ export default class NavBar extends Component {
                                     </ul>
                                 </li>
                             </ul> 
+
+                            <div class={`form-check form-switch text-${this.props.mode === 'light' ?'dark':'light'}`}>
+                                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={this.props.toggleMode} />
+                                <label className="form-check-label" for="flexSwitchCheckDefault">{this.props.mode==='light'? 'Enable DarkMode' : 'Enable LightMode' }</label>
+                            </div>
 
                         </div>
                     </div>
