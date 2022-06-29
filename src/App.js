@@ -1,13 +1,7 @@
 import React, { Component, createContext } from 'react'
 import NavBar from './Components/NavBar'
 import News from './Components/News'
-import {
-  BrowserRouter as Router,
-  // Switch,
-  Route,
-  //  Link,
-  Routes
-} from "react-router-dom";
+import {BrowserRouter,Route,Routes} from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 
 export const contextMode = createContext(); 
@@ -49,7 +43,7 @@ export default class App extends Component {
       <div>
 
         {/* <News setProgress={this.setProgress} apiKey={this.apiKey}  pageSize={8} country="in" category="science" /> */}
-        <Router>
+        <BrowserRouter>
           <NavBar mode={this.state.mode} toggleMode={this.toggleMode}/>
           <LoadingBar color='#f11946' progress={this.state.progress} height={3} />
           <contextMode.Provider value={this.state.mode}>
@@ -75,7 +69,7 @@ export default class App extends Component {
               <Route path="/unitedstates" element={<News setProgress={this.setProgress} apiKey={this.apiKey}  key="unitedstates" pageSize={8} country="us" category="general" />} /> 
             </Routes>
           </contextMode.Provider>
-        </Router>
+        </BrowserRouter>
 
 
       </div>
