@@ -11,7 +11,7 @@ export class NewsItem extends Component {
                         return (
                             <div className='my-3'>
                                 <div className={`card bg-${mode === 'light' ? 'light' : 'dark'} text-${mode === 'light' ? 'dark' : 'light'}`}>
-                                    <div style={{ position: 'absolute', display: 'flex', right: 0, justifyContent: 'flex-end' }}>
+                                    <div style={{ position: 'absolute', display: 'flex', right: 0, justifyContent: 'flex-end'}}>
                                         <span className="badge rounded-pill bg-danger" style={{ left: '85%', zIndex: '1' }}>{source}</span>
                                     </div>
                                     <img src={imageUrl} alt='' />

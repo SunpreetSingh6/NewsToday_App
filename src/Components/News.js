@@ -122,8 +122,8 @@ export default class News extends Component {
     render() {
         return (
             <>
-                <h2 className='text-center my-3'>NewsToday - Top {this.props.category === 'general' ? '' : this.captalizeFirstLetter(this.props.category)} Headlines</h2>
-                {/* {this.state.loading && <Spinner />} */}
+                <h2 className='text-center my-2'>NewsToday - Top {this.props.category === 'general' ? '' : this.captalizeFirstLetter(this.props.category)} Headlines</h2>
+                {this.state.loading && <Spinner />}
 
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
@@ -137,7 +137,7 @@ export default class News extends Component {
                             this.state.articles.map((element) => {
                                 return <div className="col-md-3" key={element.url}>
                                     <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""}
-                                        imageUrl={element.urlToImage ? element.urlToImage : "https://images.hindustantimes.com/tech/img/2022/01/15/1600x900/ap10-22-2015-000010b_7593e088-797d-11e5-9d61-41ab8e878edd_1642238188743.jpg"}
+                                        imageUrl={element.urlToImage ? element.urlToImage : "https://bitsofco.de/content/images/2018/12/broken-1.png"}
                                         newsUrl={element.url ? element.url : ""}
                                         author={element.author}
                                         date={element.publishedAt}
