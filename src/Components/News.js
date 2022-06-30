@@ -15,7 +15,7 @@ export default class News extends Component {
     static propTypes = {
         country: PropTypes.string,
         pageSize: PropTypes.number,
-        category: PropTypes.string
+        category: PropTypes.string,
     }
 
     constructor() {
@@ -122,7 +122,7 @@ export default class News extends Component {
     render() {
         return (
             <>
-                <h2 className='text-center my-2'>NewsToday - Top {this.props.category === 'general' ? '' : this.captalizeFirstLetter(this.props.category)} Headlines</h2>
+                <h2 className={`text-center text-${this.props.mode === 'light' ?'dark':'light'}`} style={{marginTop:'70px'}}>NewsToday - Top {this.props.category === 'general' ? '' : this.captalizeFirstLetter(this.props.category)} Headlines</h2>
                 {this.state.loading && <Spinner />}
 
                 <InfiniteScroll
